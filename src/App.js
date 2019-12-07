@@ -70,23 +70,24 @@ export default function App() {
                     </div>
                   }
                   bodyContent={
-//                     <Results
-//                       titleField={getConfig().titleField}
-//                       urlField={getConfig().urlField}
-//                       shouldTrackClickThrough={true}
-//                     />
-                        <ResultCard>
-                        <ResultCard.Title
-                              <div>
-                                <p>{getConfig().titleField}</p>
-                            </div>
-                        />
-                        <ResultCard.Description>
-                            <div>
-                                <p>{getConfig().urlField}</p>
-                            </div>
-                        </ResultCard.Description>
-                    </ResultCard>
+                    <p>{wasSearched}</p>
+                    <Results
+                      titleField={getConfig().titleField}
+                      urlField={getConfig().urlField}
+                      shouldTrackClickThrough={true}
+                    />
+//                         <ResultCard>
+//                         <ResultCard.Title
+//                               <div>
+//                                 <p>{getConfig().titleField}</p>
+//                             </div>
+//                         />
+//                         <ResultCard.Description>
+//                             <div>
+//                                 <p>{getConfig().urlField}</p>
+//                             </div>
+//                         </ResultCard.Description>
+//                     </ResultCard>
                         
                   }
                   bodyHeader={
