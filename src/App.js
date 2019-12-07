@@ -43,8 +43,7 @@ const config = {
 };
 
 export default function App() {
-  return (    <img className="img-responsive" src={"../assets/image/img/abc.jpg"} alt="logo"/>
-
+  return (  
     <SearchProvider config={config}>
       <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
         {({ wasSearched }) => {
