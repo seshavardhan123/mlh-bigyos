@@ -16,11 +16,7 @@ import {
 } from "@elastic/react-search-ui";
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import {
-    ReactiveList,
-    ResultCard
-} from '@appbaseio/reactivesearch';
-const { ResultCardWrapper } = ReactiveList;
+
 import {
   buildAutocompleteQueryConfig,
   buildFacetConfigFromConfig,
@@ -70,12 +66,11 @@ export default function App() {
                     </div>
                   }
                   bodyContent={
-                    <p>{wasSearched}</p>
                     <Results
                       titleField={getConfig().titleField}
                       urlField={getConfig().urlField}
-                      shouldTrackClickThrough={true}/>
-                
+                      shouldTrackClickThrough={true}
+                    />
                   }
                   bodyHeader={
                     <React.Fragment>
@@ -90,7 +85,6 @@ export default function App() {
           );
         }}
       </WithSearch>
- 
     </SearchProvider>
   );
 }
