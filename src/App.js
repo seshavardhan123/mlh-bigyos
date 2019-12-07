@@ -74,21 +74,8 @@ export default function App() {
                     <Results
                       titleField={getConfig().titleField}
                       urlField={getConfig().urlField}
-                      shouldTrackClickThrough={true}
-                    />
-//                         <ResultCard>
-//                         <ResultCard.Title
-//                               <div>
-//                                 <p>{getConfig().titleField}</p>
-//                             </div>
-//                         />
-//                         <ResultCard.Description>
-//                             <div>
-//                                 <p>{getConfig().urlField}</p>
-//                             </div>
-//                         </ResultCard.Description>
-//                     </ResultCard>
-                        
+                      shouldTrackClickThrough={true}/>
+                
                   }
                   bodyHeader={
                     <React.Fragment>
