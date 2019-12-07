@@ -16,7 +16,11 @@ import {
 } from "@elastic/react-search-ui";
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-
+import {
+    ReactiveList,
+    ResultCard
+} from '@appbaseio/reactivesearch';
+const { ResultCardWrapper } = ReactiveList;
 import {
   buildAutocompleteQueryConfig,
   buildFacetConfigFromConfig,
@@ -45,59 +49,60 @@ const config = {
 export default function App() {
   return (
     <SearchProvider config={config}>
-//       <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
-//         {({ wasSearched }) => {
-//           return (
-//             <div className="App">
-//               <ErrorBoundary>
-//                 <Layout
-//                   header={<SearchBox autocompleteSuggestions={true} />}
-//                   sideContent={
-//                     <div>
-//                       {wasSearched && (
-//                         <Sorting
-//                           label={"Sort by"}
-//                           sortOptions={buildSortOptionsFromConfig()}
-//                         />
-//                       )}
-//                       {getFacetFields().map(field => (
-//                         <Facet key={field} field={field} label={field} />
-//                       ))}
-//                     </div>
-//                   }
-//                   bodyContent={
+      <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
+        {({ wasSearched }) => {
+          return (
+            <div className="App">
+              <ErrorBoundary>
+                <Layout
+                  header={<SearchBox autocompleteSuggestions={true} />}
+                  sideContent={
+                    <div>
+                      {wasSearched && (
+                        <Sorting
+                          label={"Sort by"}
+                          sortOptions={buildSortOptionsFromConfig()}
+                        />
+                      )}
+                      {getFacetFields().map(field => (
+                        <Facet key={field} field={field} label={field} />
+                      ))}
+                    </div>
+                  }
+                  bodyContent={
 //                     <Results
 //                       titleField={getConfig().titleField}
 //                       urlField={getConfig().urlField}
 //                       shouldTrackClickThrough={true}
 //                     />
-//                   }
-//                   bodyHeader={
-//                     <React.Fragment>
-//                       {wasSearched && <PagingInfo />}
-//                       {wasSearched && <ResultsPerPage />}
-//                     </React.Fragment>
-//                   }
-//                   bodyFooter={<Paging />}
-//                 />
-//               </ErrorBoundary>
-//             </div>
-//           );
-//         }}
-//       </WithSearch>
-    {({ results }) => {
-    return (
-      <div>
-        {results.map(result => (
-          <Result key={result.id.raw}
-            result={result}
-            titleField="title"
-            urlField="nps_link"
-          />
-        ))}
-      </div>
-    );
-  }}
+                        <ResultCard>
+                        <ResultCard.Title
+                              <div>
+                                <p>{getConfig().titleField}</p>
+                            </div>
+                        />
+                        <ResultCard.Description>
+                            <div>
+                                <p>{getConfig().urlField}</p>
+                            </div>
+                        </ResultCard.Description>
+                    </ResultCard>
+                        
+                  }
+                  bodyHeader={
+                    <React.Fragment>
+                      {wasSearched && <PagingInfo />}
+                      {wasSearched && <ResultsPerPage />}
+                    </React.Fragment>
+                  }
+                  bodyFooter={<Paging />}
+                />
+              </ErrorBoundary>
+            </div>
+          );
+        }}
+      </WithSearch>
+ 
     </SearchProvider>
   );
 }
