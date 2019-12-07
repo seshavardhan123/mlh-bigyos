@@ -1,0 +1,30 @@
+{
+  "engineName": "bigyos",
+  "hostIdentifier": "host-icu81x",
+  "endpointBase": "https://host-icu81x.api.swiftype.com",
+  "searchKey": "search-6y8ropr8d5jbsdnwufqhxgzn",
+  "resultFields": [
+    "fauthor",
+    "fisbn",
+    "ftitle",
+    "fprice",
+    "freviews",
+    "frating",
+    "atitle",
+    "aauthor",
+    "arating",
+    "areviews",
+    "aisbn",
+    "aprice",
+    "id"
+  ],
+  "sortFields": [
+    "aprice",
+    "arating"
+  ],
+  "facets": [
+    "aprice",
+    "arating"
+  ],
+  "titleField": "atitle"
+}
